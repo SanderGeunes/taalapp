@@ -12,20 +12,20 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'Lidwoorden', component: LidwoordenComponent},
-  {path: 'Meerkeuze', component: MeerkeuzeComponent},
-  {path: 'Woordflitser', component: WoordflitserComponent},
-  {path: 'Resultaat', component: ResultaatComponent}
+  {path: 'lidwoorden', component: LidwoordenComponent},
+  {path: 'meerkeuze', component: MeerkeuzeComponent},
+  {path: 'woordflitser', component: WoordflitserComponent},
+  {path: 'resultaat', component: ResultaatComponent}
 ]
 
 @NgModule({
   declarations: [
+    HomeComponent,
     AppComponent,
     LidwoordenComponent,
     MeerkeuzeComponent,
     WoordflitserComponent,
-    ResultaatComponent,
-    HomeComponent
+    ResultaatComponent    
   ],
   imports: [
     BrowserModule,
