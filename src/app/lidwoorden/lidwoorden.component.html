@@ -1,1 +1,28 @@
-<p>lidwoorden works!</p>
+<div class="container text-center">
+    <div class="row">
+        <div class="col-md-12">
+            <h5>Duid voor elk woord aan of het mannelijk of vrouwelijk is</h5>
+            <br>
+            <p>{{currentWord.word_fr}} </p>
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 ">
+            <button type="button" class="btn btn-primary btn-lg" (click)="checkIfMale()">Mannelijk</button> 
+        </div>
+        <div class="col-md-6">
+            <button type="button" class="btn btn-danger btn-lg" (click)="checkIfFemale()">Vrouwelijk</button>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <h6>
+                Score:
+                <span>{{score}}</span>
+            </h6>
+        </div>
+    </div>
+</div>

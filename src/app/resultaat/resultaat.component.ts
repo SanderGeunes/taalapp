@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-resultaat',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./resultaat.component.css']
 })
 export class ResultaatComponent {
-
+  ngOnInit(){
+    this.score = localStorage.getItem("score");
+  }
+score: any;  
 }
