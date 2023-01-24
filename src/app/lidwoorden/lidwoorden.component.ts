@@ -41,7 +41,7 @@ export class LidwoordenComponent {
     this.index = this.index + 1;
     if (this.index===this.words.length){
       localStorage.setItem("score", this.score);
-      setTimeout(() => { this.router.navigateByUrl('resultaat')},1000);
+      setTimeout(() => { this.router.navigateByUrl('resultaat')},200);
     } else {
       this.showWords();
     }
@@ -55,7 +55,7 @@ export class LidwoordenComponent {
     this.index = this.index + 1
     if (this.index===this.words.length){
       localStorage.setItem("score", this.score);
-      setTimeout(() => { this.router.navigateByUrl('resultaat')},1000);
+      setTimeout(() => { this.router.navigateByUrl('resultaat')},200);
     } else {
       this.showWords();
     }
