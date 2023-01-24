@@ -54,7 +54,7 @@ export class LidwoordenComponent {
   }
 
   checkIfFemale(){
-    //if article is male, increase score by 1
+    //if article is female, increase score by 1
     if (this.currentWord.article_fr === "f"){
       this.score = this.score + 1
     }
