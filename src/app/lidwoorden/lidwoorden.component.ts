@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { Router } from '@angular/router';
+import { WordsService } from '../words.service';
 
 @Component({
   selector: 'app-lidwoorden',
@@ -9,56 +10,32 @@ import { Router } from '@angular/router';
 })
 export class LidwoordenComponent {
 
-  ngOnInit(){
-    this.showWords();
-    
-  }
-  constructor(private router: Router){
+  constructor(private router: Router, private wordsService: WordsService){
     this.index = 0;
     this.score = 0;
   }
-  score: any;
+  ngOnInit(){
+    let category:number = parseFloat(sessionStorage.getItem("category"));
+    console.log(category)
+    this.wordsService.getWords(category).then(data=>{
+      this.words = data.filter(element=>element.type_id===1)
+      this.showWords();
+    })
+    
+    
+  }
+  score: any; 
   index: number;
-
-  words: any = [
-    {
-      "id": 17,
-      "word_fr": "famille",
-      "word_d": "familie",
-      "photo": "url",
-      "article_fr": "une",
-      "category_id": 2,
-      "type_id": 1
-    },
-    {
-      "id": 18,
-      "word_fr": "frère",
-      "word_d": "broer",
-      "photo": "url",
-      "article_fr": "un",
-      "category_id": 2,
-      "type_id": 1
-    },
-    {
-      "id": 19,
-      "word_fr": "sœur",
-      "word_d": "zus",
-      "photo": "url",
-      "article_fr": "une",
-      "category_id": 2,
-      "type_id": 1
-    }
-  ]
+  words: any;
   currentWord:any;
 
 
   showWords(){ 
-      this.currentWord = this.words[this.index];
-      
-    
+      this.currentWord = this.words[this.index];  
   }
+
   checkIfMale(){
-    if (this.currentWord.article_fr === "un"){
+    if (this.currentWord.article_fr === "m"){
       this.score = this.score + 1
     }
     this.index = this.index + 1;
@@ -72,7 +49,7 @@ export class LidwoordenComponent {
   }
 
   checkIfFemale(){
-    if (this.currentWord.article_fr === "une"){
+    if (this.currentWord.article_fr === "f"){
       this.score = this.score + 1
     }
     this.index = this.index + 1
