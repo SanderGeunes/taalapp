@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultaatComponent {
   ngOnInit(){
-    this.score = localStorage.getItem("score");
+    this.score = sessionStorage.getItem("score");
   }
 score: any;  
 }

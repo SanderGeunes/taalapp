@@ -9,14 +9,16 @@ import { WordsService } from '../words.service';
   styleUrls: ['./lidwoorden.component.css']
 })
 export class LidwoordenComponent {
-
+  //instantiating routing and service capabilities
   constructor(private router: Router, private wordsService: WordsService){
     this.index = 0;
     this.score = 0;
   }
   ngOnInit(){
+    // retrieving the category_id from the session storage
     let category:number = parseFloat(sessionStorage.getItem("category"));
     console.log(category)
+    // calling the service function to fetch data 
     this.wordsService.getWords(category).then(data=>{
       this.words = data.filter(element=>element.type_id===1)
       this.showWords();
@@ -35,12 +37,15 @@ export class LidwoordenComponent {
   }
 
   checkIfMale(){
+    //if article is male, increase score by 1
     if (this.currentWord.article_fr === "m"){
       this.score = this.score + 1
     }
+    // increasing the index
     this.index = this.index + 1;
+    // if there are no more words left, save score to session storage and navigate to 'resultaat' component
     if (this.index===this.words.length){
-      localStorage.setItem("score", this.score);
+      sessionStorage.setItem("score", this.score);
       setTimeout(() => { this.router.navigateByUrl('resultaat')},200);
     } else {
       this.showWords();
@@ -49,12 +54,15 @@ export class LidwoordenComponent {
   }
 
   checkIfFemale(){
+    //if article is male, increase score by 1
     if (this.currentWord.article_fr === "f"){
       this.score = this.score + 1
     }
-    this.index = this.index + 1
+    // increasing the index
+    this.index = this.index + 1;
+    // if there are no more words left, save score to session storage and navigate to 'resultaat' component
     if (this.index===this.words.length){
-      localStorage.setItem("score", this.score);
+      sessionStorage.setItem("score", this.score);
       setTimeout(() => { this.router.navigateByUrl('resultaat')},200);
     } else {
       this.showWords();
