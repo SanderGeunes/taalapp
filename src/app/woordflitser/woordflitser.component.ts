@@ -9,22 +9,34 @@ import { Component } from '@angular/core';
 })
 export class WoordflitserComponent {
   word: string;
-  words: string[];
+  words: any[];
   translation: string;
   translations: string[];
   counter: number;
   score: number;
+  progressValue: number = 0;
 
 
   constructor(/*private router: Router, private wordsService: WordsService*/){
-    this.words = ["Hallo", "Dag", "Goed zo"];
-    this.translations = ["Bonjour", "Au revoir", "Bien fait!"];
+    this.words =[
+      { word: "Hallo", translation: "Bonjour" },
+      { word: "Dag", translation: "Au revoir" },
+      { word: "Goed zo", translation: "Bien fait!" }
+    ];
     this.counter = 0;
-    this.word = this.words[this.counter];
-    this.translation = this.translations[this.counter];
-    this.score=0
+    this.shuffle(this.words);
+    this.word = this.words[this.counter].word;
+    this.translation = this.words[this.counter].translation;
+    this.score = 0;
   }
 
+  shuffle(a){
+    for (let i = this.words.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [this.words[i], this.words[j]] = [this.words[j], this.words[i]];
+  }
+  return a;
+  }
 
   showWords(){
     this.word;
@@ -36,17 +48,23 @@ export class WoordflitserComponent {
     this.translation = "";
     this.score = (this.score + 1) % this.words.length;
     this.counter = (this.counter + 1) % this.words.length;
-    this.word = this.words[this.counter];
-    setTimeout(() => {this.translation = this.translations[this.counter];
+    this.word = this.words[this.counter].word;
+    setTimeout(() => {this.translation = this.words[this.counter].translation;
     }, 5000);
+    this.incrementProgress();
   }
 
   wrongWordFunction(){
     this.translation = "";
     this.counter = (this.counter + 1) % this.words.length;
-    this.word = this.words[this.counter];
-    setTimeout(() => {this.translation = this.translations[this.counter];
+    this.word = this.words[this.counter].word;
+    setTimeout(() => {this.translation = this.words[this.counter].translation;
     }, 5000);
+    this.incrementProgress();
+  }
+  
+  incrementProgress() {
+    this.progressValue += 10;
   }
   }
   /*showWords(){

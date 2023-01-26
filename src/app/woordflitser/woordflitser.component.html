@@ -31,7 +31,7 @@
     <div class="row m-5">
         <div class="col">
             <div class="progress">
-                <div class="progress-bar" style="width:70%"></div>
+                <div class="progress-bar" [ngStyle]="{'width': progressValue + '%'}" ></div>
               </div>
         </div>
     </div>
