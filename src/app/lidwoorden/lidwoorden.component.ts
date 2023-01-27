@@ -9,10 +9,21 @@ import { WordsService } from '../words.service';
   styleUrls: ['./lidwoorden.component.css']
 })
 export class LidwoordenComponent {
+  score: any; 
+  index: number;
+  words: any;
+  currentWord:any;
+  showRight: boolean;
+  showWrong: boolean;
+  progress: number;
+
   //instantiating routing and service capabilities
   constructor(private router: Router, private wordsService: WordsService){
     this.index = 0;
     this.score = 0;
+    this.showRight = false;
+    this.showWrong = false;
+    this.progress = 0;
   }
   ngOnInit(){
     // retrieving the category_id from the session storage
@@ -20,16 +31,15 @@ export class LidwoordenComponent {
     console.log(category)
     // calling the service function to fetch data 
     this.wordsService.getWords(category).then(data=>{
-      this.words = data.filter(element=>element.type_id===1)
+      // using Lodash to shuffle the Array
+      const _ = require('lodash');
+      this.words = _.shuffle(data.filter(element=>element.type_id===1));
       this.showWords();
     })
     
     
   }
-  score: any; 
-  index: number;
-  words: any;
-  currentWord:any;
+  
 
 
   showWords(){ 
@@ -37,15 +47,22 @@ export class LidwoordenComponent {
   }
 
   checkIfMale(){
-    //if article is male, increase score by 1
+    //if article is male, increase score by 1 and show picture "right answer"
     if (this.currentWord.article_fr === "m"){
-      this.score = this.score + 1
+      this.score = this.score + 1;
+      this.showWrong = false;
+      this.showRight = true;
+    } else {
+      this.showRight = false;
+      this.showWrong = true;
     }
-    // increasing the index
+    // increasing the index + progress
     this.index = this.index + 1;
+    this.increaseProgress();
     // if there are no more words left, save score to session storage and navigate to 'resultaat' component
     if (this.index===this.words.length){
-      sessionStorage.setItem("score", this.score);
+      let scorePercentage: any = this.score/this.words.length;
+      sessionStorage.setItem("score", scorePercentage);
       setTimeout(() => { this.router.navigateByUrl('resultaat')},200);
     } else {
       this.showWords();
@@ -54,20 +71,32 @@ export class LidwoordenComponent {
   }
 
   checkIfFemale(){
-    //if article is female, increase score by 1
+    //if article is female, increase score by 1 and show picture "right answer"
     if (this.currentWord.article_fr === "f"){
       this.score = this.score + 1
+      this.showWrong = false;
+      this.showRight = true;
+    } else {
+      this.showRight = false;
+      this.showWrong = true;
     }
-    // increasing the index
+    // increasing the index + progress
     this.index = this.index + 1;
+    this.increaseProgress();
     // if there are no more words left, save score to session storage and navigate to 'resultaat' component
     if (this.index===this.words.length){
-      sessionStorage.setItem("score", this.score);
+      let scorePercentage: any = this.score/this.words.length;
+      sessionStorage.setItem("score", scorePercentage);
       setTimeout(() => { this.router.navigateByUrl('resultaat')},200);
     } else {
       this.showWords();
     }
     
+  }
+  // function to increase progress bar
+  increaseProgress(){
+    let x = 100/this.words.length;
+    this.progress = this.progress + x;
   }
 }
 
