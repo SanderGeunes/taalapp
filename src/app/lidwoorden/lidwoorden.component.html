@@ -23,6 +23,16 @@
                 Score:
                 <span>{{score}}</span>
             </h6>
+            <div class="progress">
+                <div class="progress-bar" [ngStyle]="{'width': progress + '%'}" ></div>
+              </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <img class="imgDisplay"*ngIf="showRight" src="/assets/right.png" alt="right answer">
+            <img class="imgDisplay" *ngIf="showWrong" src="/assets/wrong.png" alt="wrong answer">
         </div>
     </div>
 </div>
