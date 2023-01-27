@@ -34,6 +34,7 @@ export class LidwoordenComponent {
       // using Lodash to shuffle the Array
       const _ = require('lodash');
       this.words = _.shuffle(data.filter(element=>element.type_id===1));
+      console.log(this.words)
       this.showWords();
     })
     
