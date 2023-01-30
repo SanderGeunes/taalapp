@@ -21,6 +21,7 @@ export class WoordflitserComponent {
   showTranslation = false;
   x: number;
   initialWordsLength: number;
+  percentageScore: any;
 
 
   constructor(private router: Router, private wordsService: WordsService){
@@ -45,6 +46,9 @@ export class WoordflitserComponent {
     this.showTranslation = false;
     if (this.words.length === 0) {
       this.gameOver = true;
+      this.percentageScore= this.score/this.initialWordsLength;
+      sessionStorage.setItem("score", this.percentageScore);
+      setTimeout(() => { this.router.navigateByUrl('resultaat')},200);
       return;
     }
     const randomIndex = Math.floor(Math.random() * this.words.length);
