@@ -48,7 +48,8 @@ export class WoordflitserComponent {
       this.gameOver = true;
       this.percentageScore= this.score/this.initialWordsLength;
       sessionStorage.setItem("score", this.percentageScore);
-      setTimeout(() => { this.router.navigateByUrl('resultaat')},200);
+      setTimeout(() => {this.router.navigateByUrl('resultaat');},4000);
+      
       return;
     }
     const randomIndex = Math.floor(Math.random() * this.words.length);
