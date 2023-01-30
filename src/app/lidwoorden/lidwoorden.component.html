@@ -9,10 +9,10 @@
     </div>
     <div class="row">
         <div class="col-md-6 ">
-            <button type="button" class="btn btn-primary btn-lg" (click)="checkIfMale()">Mannelijk</button> 
+            <button type="button" #male value="m" class="btn btn-primary btn-lg" (click)="checkIfGenderCorrect(male.value)">Mannelijk</button> 
         </div>
         <div class="col-md-6">
-            <button type="button" class="btn btn-danger btn-lg" (click)="checkIfFemale()">Vrouwelijk</button>
+            <button type="button" #female value="f" class="btn btn-danger btn-lg" (click)="checkIfGenderCorrect(female.value)">Vrouwelijk</button>
         </div>
     </div>
     <br>
