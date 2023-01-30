@@ -9,6 +9,7 @@ import { WoordflitserComponent } from './woordflitser/woordflitser.component';
 import { ResultaatComponent } from './resultaat/resultaat.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
+import { VocabulaireComponent } from './vocabulaire/vocabulaire.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'lidwoorden', component: LidwoordenComponent},
   {path: 'meerkeuze', component: MeerkeuzeComponent},
   {path: 'woordflitser', component: WoordflitserComponent},
-  {path: 'resultaat', component: ResultaatComponent}
+  {path: 'resultaat', component: ResultaatComponent},
+  {path: 'vocabulaire', component: VocabulaireComponent}
 ]
 
 @NgModule({
@@ -26,7 +28,8 @@ const routes: Routes = [
     LidwoordenComponent,
     MeerkeuzeComponent,
     WoordflitserComponent,
-    ResultaatComponent    
+    ResultaatComponent,
+    VocabulaireComponent    
   ],
   imports: [
     FormsModule,

@@ -1,2 +1,39 @@
-<p>resultaat works!</p>
-<p>{{score}}</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Jouw score bedraagt:</h4>
+            <p class="score">{{roundedScore}}%</p>
+        </div>
+        <div class="col-md-6">
+            <div *ngIf="failed">
+                <img src="/assets/badScore.png" alt="failed" class="imageRes">
+                <p>Oh, nee! Je bent gebuisd. Probeer het nog eens!</p>
+            </div>
+            <div *ngIf="passed">
+                <img src="/assets/bronze.png" alt="bronze medal" class="imageRes">
+                <p> Geslaagd! Maar er is nog ruimte voor verbetering!</p>
+            </div>
+            <div *ngIf="cumLaude">
+                <img src="/assets/silver.png" alt="silver medal" class="imageRes">
+                <p> Goed gewerkt!</p>
+            </div>
+            <div *ngIf="cumMagnaLaude">
+                <img src="/assets/gold.png" alt="gold medal" class="imageRes">
+                <p>Wow! Heel mooie score!</p>
+            </div>
+            <div *ngIf="summaCumLaude">
+                <img src="/assets/frans.png" alt="Frencher than French" class="imageRes">
+                <p>Jij bent Franser dan Frans!</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button (click)="navigateToHome()">Een nieuwe oefening beginnen</button>
+        </div>
+    </div>
+</div>
+
+
+
+
