@@ -19,6 +19,9 @@ export class WoordflitserComponent {
   progressValue: number = 0;
   someCategory: any = parseFloat(sessionStorage.getItem("category"));
   showTranslation = false;
+  x: number;
+  initialWordsLength: number;
+
 
   constructor(private router: Router, private wordsService: WordsService){
     /*this.words =[];*/
@@ -31,6 +34,8 @@ export class WoordflitserComponent {
       .then(words => {
         this.words = words;
         console.log(words)
+        this.initialWordsLength = this.words.length;
+        this.x = 100/this.words.length;
         this.gameStarted = true;
         this.getNextWord();
       });
@@ -52,98 +57,19 @@ export class WoordflitserComponent {
     if (this.userAnswer === this.currentWord.word_fr) {
       this.score++;
     } else {
-      this.score--;
+      this.score;
     }
     this.showTranslation = true;
-    setTimeout(() => {this.getNextWord();
+    setTimeout(() => {
+      this.getNextWord();
+      this.incrementProgress();
     }, 2000);
+    //this.incrementProgress();
   }
 
   incrementProgress() {
-    let x = 100/this.words.length;
-    this.progressValue = this.progressValue + x;
+    console.log(this.words.length);
+    this.progressValue = this.progressValue + this.x;
+    console.log(this.progressValue);
+} 
 }
-  
-}
-
-  /*word: string;
-  words: any[];
-  translation: string;
-  translations: string[];
-  counter: number;
-  score: number;
-  progressValue: number = 0;*/
-  
-
-
-  /*constructor(private router: Router, private wordsService: WordsService){
-    this.words =[];
-   
-  }*/
-
-  /*shuffle(a: any[]){
-    for (let i = this.words.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [this.words[i], this.words[j]] = [this.words[j], this.words[i]];
-  }
-  return a;
-  }
-
-  showWords(){
-    this.word;
-    setTimeout(() => {this.translation;
-    }, 5000);
-  }
-
-  updateWords(){
-    this.translation = "";
-    this.score = (this.score + 1) % this.words.length;
-    this.counter = (this.counter + 1) % this.words.length;
-    this.word = this.words[this.counter].word_d;
-    setTimeout(() => {this.translation = this.words[this.counter].word_fr;
-    }, 5000);
-    this.incrementProgress();
-  }
-
-  wrongWordFunction(){
-    this.translation = "";
-    this.counter = (this.counter + 1) % this.words.length;
-    this.word = this.words[this.counter].word_d;
-    setTimeout(() => {this.translation = this.words[this.counter].word_fr;
-    }, 5000);
-    this.incrementProgress();
-  }
-  
-  incrementProgress() {
-      let x = 100/this.words.length;
-      this.progressValue = this.progressValue + x;
-  }
-
-  getWords () {
-    this.wordsService.getWords(1).then(res => {
-      this.words = res;
-    });
-  }
-
-  ngOnInit() {
-    this.getWords();
-    this.counter = 0;
-    console.log(this.words);
-    this.word = this.words[this.counter].word_d;
-    this.translation = this.words[this.counter].word_fr;
-    this.score = 0;
-  }
-
-  }
-*/
-
-  /*showWords(){
-  this.word = "Hallo";
-  this.translation = "Bonjour";
-
-  console.log(this.word);
-
-  setTimeout(() => {
-    console.log(this.translation);
-  }, 5000);
-  }*/
