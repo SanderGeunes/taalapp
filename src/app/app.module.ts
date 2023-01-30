@@ -8,6 +8,7 @@ import { MeerkeuzeComponent } from './meerkeuze/meerkeuze.component';
 import { WoordflitserComponent } from './woordflitser/woordflitser.component';
 import { ResultaatComponent } from './resultaat/resultaat.component';
 import { HomeComponent } from './home/home.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -28,8 +29,9 @@ const routes: Routes = [
     ResultaatComponent    
   ],
   imports: [
+    FormsModule,
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent]
