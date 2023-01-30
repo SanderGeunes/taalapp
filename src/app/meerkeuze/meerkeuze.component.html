@@ -1,1 +1,26 @@
-<p>meerkeuze works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple choice</title>
+</head>
+<body> 
+    <div class="container">
+    <div class="row">
+        {{wordlist | json }}
+    <div class="col-md-12 ">Hoofdstuk 1: </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">{{currentWord}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 "><button id="buttonWord1" class="btn btn-primary"(click)="showWords(1)">{{word1}}</button></div><div class ="col-md-6"><button id="buttonWord2"class="btn btn-primary"(click)="showWords(2)">{{word2}}</button></div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"><button id="buttonWord3"class="btn btn-primary" (click)="showWords(3)">{{word3}}</button></div><div class ="col-md-6"><button id= "buttonWord4"buttonWord4 class="btn btn-primary" (click)="showWords(4)">{{word4}}</button></div>
+    </div>
+    </div>
+</body>
+</html>
