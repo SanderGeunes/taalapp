@@ -25,6 +25,7 @@ export class LidwoordenComponent {
     this.showWrong = false;
     this.progress = 0;
   }
+  
   ngOnInit(){
     // retrieving the category_id from the session storage
     let category:number = parseFloat(sessionStorage.getItem("category"));
@@ -36,20 +37,16 @@ export class LidwoordenComponent {
       this.words = _.shuffle(data.filter(element=>element.type_id===1));
       console.log(this.words)
       this.showWords();
-    })
-    
-    
+    }) 
   }
   
-
-
   showWords(){ 
       this.currentWord = this.words[this.index];  
   }
 
-  checkIfMale(){
+  checkIfGenderCorrect(gender: string){
     //if article is male, increase score by 1 and show picture "right answer"
-    if (this.currentWord.article_fr === "m"){
+    if (this.currentWord.article_fr === gender){
       this.score = this.score + 1;
       this.showWrong = false;
       this.showRight = true;
@@ -68,32 +65,8 @@ export class LidwoordenComponent {
     } else {
       this.showWords();
     }
-    
   }
 
-  checkIfFemale(){
-    //if article is female, increase score by 1 and show picture "right answer"
-    if (this.currentWord.article_fr === "f"){
-      this.score = this.score + 1
-      this.showWrong = false;
-      this.showRight = true;
-    } else {
-      this.showRight = false;
-      this.showWrong = true;
-    }
-    // increasing the index + progress
-    this.index = this.index + 1;
-    this.increaseProgress();
-    // if there are no more words left, save score to session storage and navigate to 'resultaat' component
-    if (this.index===this.words.length){
-      let scorePercentage: any = this.score/this.words.length;
-      sessionStorage.setItem("score", scorePercentage);
-      setTimeout(() => { this.router.navigateByUrl('resultaat')},200);
-    } else {
-      this.showWords();
-    }
-    
-  }
   // function to increase progress bar
   increaseProgress(){
     let x = 100/this.words.length;
