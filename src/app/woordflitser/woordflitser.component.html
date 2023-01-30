@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div *ngIf="showTranslation">
+            <div *ngIf="showTranslation" [ngStyle]="{'color': showTranslation && userAnswer === currentWord.word_fr ? 'green' : 'red'}">
             <h2>{{currentWord.word_fr}}</h2>
             </div>
         </div>
