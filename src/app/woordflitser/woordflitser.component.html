@@ -26,7 +26,7 @@
     </div>
     <div class="row m-5">
         <div *ngIf="gameStarted && !gameOver">
-            <input [(ngModel)]="userAnswer" placeholder="Enter your answer">
+            <input [(ngModel)]="userAnswer" placeholder="Enter your answer" (keyup.enter)="checkAnswer()">
             <button (click)="checkAnswer()">Submit</button>
         </div>
     </div>
