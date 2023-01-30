@@ -1,30 +1,35 @@
 <div class="container text-center">
     <div class="row">
-        <div class="col">
-            <button type="button" class="btn btn-light" (click)="showWords()">Toon een woord!</button>
+        <div class="col" *ngIf="!gameStarted">
+            <button type="button" class="btn btn-light" (click)="startGame()">Start het spel!</button>
         </div>
     </div>
     <div class="row m-2">
         <div class="col-md-6">
             <h1>Geef de vertaling van volgend woord:</h1>
-            <h2>{{word}}</h2>
+            <div *ngIf="gameStarted && !gameOver">
+            <h2>{{currentWord.word_d}}</h2>
+            <input [(ngModel)]="userAnswer" placeholder="Enter your answer">
+            </div>
+      <button (click)="checkAnswer()">Submit</button>
         </div>
         <div class="col-md-6">
             <h1>Vertaling:</h1>
-            <h2>{{translation}}</h2>
+            <div *ngIf="showTranslation">
+            <h2>{{currentWord.word_fr}}</h2>
+            </div>
         </div>
     </div>
-    <div class="row m-2">
+    <!--<div class="row m-2">
         <div class="col">
             <button type="button" class="btn btn-success" (click)="updateWords()">Juist</button>
             <button type="button" class="btn btn-danger" (click)="wrongWordFunction()">Fout</button>
         </div>
-    </div>
+    </div>-->
     <div class="row m-5">
-        <div class="col-md-12">
+        <div class="col-md-12" *ngIf="gameOver">
             <h6>
-                Score:
-                <span>{{score}}</span>
+                Game over! Je hebt {{score}} punten.
             </h6>
         </div>
     </div>
@@ -37,3 +42,5 @@
     </div>
     
 </div>
+
+{{words | json}}

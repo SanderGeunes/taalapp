@@ -8,6 +8,7 @@ import { MeerkeuzeComponent } from './meerkeuze/meerkeuze.component';
 import { WoordflitserComponent } from './woordflitser/woordflitser.component';
 import { ResultaatComponent } from './resultaat/resultaat.component';
 import { HomeComponent } from './home/home.component';
+import { FormsModule } from '@angular/forms';
 import { VocabulaireComponent } from './vocabulaire/vocabulaire.component';
 
 const routes: Routes = [
@@ -31,8 +32,9 @@ const routes: Routes = [
     VocabulaireComponent    
   ],
   imports: [
+    FormsModule,
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent]
