@@ -1,59 +1,46 @@
-<div class="container">
-    <div class="row ">
-        <div class="col-md-12">
-            <h3>Kies een categorie en daarna een oefening</h3>
-            <br>
-            <br>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" value="1" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1" >
-                  Persoonlijke informatie
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" value="2" name="flexRadioDefault" id="flexRadioDefault2">
-                <label class="form-check-label" for="flexRadioDefault2" >
-                  Familie
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" value="3" name="flexRadioDefault" id="flexRadioDefault3">
-                <label class="form-check-label" for="flexRadioDefault3" >
-                  Kledij
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" value="4" name="flexRadioDefault" id="flexRadioDefault4">
-                <label class="form-check-label" for="flexRadioDefault4" >
-                  Het lichaam
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" value="5" name="flexRadioDefault" id="flexRadioDefault5">
-                <label class="form-check-label" for="flexRadioDefault5" >
-                  Thuis
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" value="6" name="flexRadioDefault" id="flexRadioDefault6">
-                <label class="form-check-label" for="flexRadioDefault6" >
-                  Vrije tijd
-                </label>
-              </div>          
-        </div>
+<div class="container-fluid text-center p-4">
+  <div class="row m-4">
+    <div class="col-md-12">
+      <h2>Selecteer jouw favoriete thema.</h2>
     </div>
-    <br>
-    <br>
-    <div class="row text-center">
-        <div class="col-md-4">
-            <button #lidwoorden value="lidwoorden" (click)="startGame(lidwoorden.value)">Lidwoordentrainer</button>
-        </div>
-        <div class="col-md-4">
-            <button #meerkeuze value="meerkeuze" (click)="startGame(meerkeuze.value)">Meerkeuze</button>
-        </div>
-        <div class="col-md-4">
-            <button #woordflitser value="woordflitser" (click)="startGame(woordflitser.value)">Woordflitser</button>
+  </div>
+</div>
+<div class="container-fluid text-center p-4 mb-5">
+    <div class="row m-4">
+        <div class="col-md-12">
+          <div class="btn-group shadow" role="group">
+                <input class="btn-check" type="radio" value="1" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                <label class="btn btn-light" for="flexRadioDefault1" ><img src="/assets/personalInformationButton.png" alt="personal information" style="width:100px;height:60px;"></label>
+                <input class="btn-check" type="radio" value="2" name="flexRadioDefault" id="flexRadioDefault2">
+                <label class="btn btn-light" for="flexRadioDefault2" ><img src="/assets/familyButton.png" alt="family" style="width:100px;height:60px;"></label>
+                <input class="btn-check" type="radio" value="3" name="flexRadioDefault" id="flexRadioDefault3">
+                <label class="btn btn-light" for="flexRadioDefault3" ><img src="/assets/clothingButton.png" alt="clothing" style="width:100px;height:60px;"></label>
+                <input class="btn-check" type="radio" value="4" name="flexRadioDefault" id="flexRadioDefault4">
+                <label class="btn btn-light" for="flexRadioDefault4" ><img src="/assets/bodyButton.png" alt="body" style="width:100px;height:60px;"></label>
+                <input class="btn-check" type="radio" value="5" name="flexRadioDefault" id="flexRadioDefault5">
+                <label class="btn btn-light" for="flexRadioDefault5" ><img src="/assets/homeButton.png" alt="home" style="width:100px;height:60px;"></label>
+                <input class="btn-check" type="radio" value="6" name="flexRadioDefault" id="flexRadioDefault6">
+                <label class="btn btn-light" for="flexRadioDefault6" ><img src="/assets/leisureButton.png" alt="leisure" style="width:100px;height:60px;"></label>         
+          </div>
         </div>
     </div>
 </div>
+<div class="container-fluid text-center p-4">
+  <div class="row m-4">
+    <div class="col-md-12">
+      <h2>Kies jouw spannendste spel.</h2>
+    </div>
+  </div>
+</div>
 
+<div class="container-fluid text-center p-4 mb-5">
+    <div class="row m-4">
+      <div class="col-md-12">
+        <div class="shadow btn-group">
+            <button #lidwoorden class="btn btn-light" value="lidwoorden" (click)="startGame(lidwoorden.value)">Lidwoordentrainer</button>
+            <button #meerkeuze class="btn btn-light" value="meerkeuze" (click)="startGame(meerkeuze.value)">Meerkeuze</button>
+            <button #woordflitser class="btn btn-light" value="woordflitser" (click)="startGame(woordflitser.value)">Woordflitser</button>
+        </div>
+    </div>
+    </div>
+</div>

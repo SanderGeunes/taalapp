@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #3B858C;
+    font-family: 'Space Grotesk', sans-serif;
+}
+h1{
+    color:#FCDF7E;
+}
+h2{
+    color:#FFFFFF;
+}
