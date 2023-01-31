@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { generate } from 'rxjs';
-
+import { Router } from '@angular/router';
 import { WordsService } from '../words.service';
+import { getLocaleCurrencySymbol } from '@angular/common';
 @Component({
   selector: 'app-meerkeuze',
   templateUrl: './meerkeuze.component.html',
@@ -14,20 +15,23 @@ export class MeerkeuzeComponent {
   word2: any = "W2";
   word3: any = "W3";
   word4: any = "W4";
+  results: any = "0";
   words: any;
+  router: any;
   buttonClicked: any;
   index: any = 0;
   frenchWord: any;
   wordf: any = "Franse woord";
   currentWord: any = "";
+  clicked: any ="";
 
   constructor(private wordService: WordsService) { }
   ngOnInit() {
     const buttons = document.querySelectorAll('button');
 
     buttons.forEach(button => {
-      button.addEventListener('click', function() {
-       console.log(this.id);
+      button.addEventListener('click', function () {
+        console.log(this.id);
       });
     });
 
@@ -36,7 +40,7 @@ export class MeerkeuzeComponent {
     this.wordService.getWords(parseFloat(category)).then(data => {
       // using Lodash to shuffle the Array
       const _ = require('lodash');
-      this.words = _.shuffle(data.filter(element => element.type_id === 1));
+      this.words = _.shuffle(data);
       console.log(this.words);
       this.showWords(this.buttonClicked);
     })
@@ -45,46 +49,49 @@ export class MeerkeuzeComponent {
 
   }
   showWords(buttonClicked) {
+    this.clicked = buttonClicked;
     console.log("buttonclicked= " + buttonClicked)
     //generating 3 other  unique dutch words
-    if(buttonClicked == "1")
-    {
-      console.log("correct");
+    if (this.index == this.words.length) {
+      this.router.navigateByUrl('resultaat')
     }
-    let wordAmount = this.words.length;
-    if(this.index == wordAmount){
+    let wordAmount = this.words.length - 1;
+    if (this.index == wordAmount) {
       {
         console.log("done");
       }
     }
     console.log(wordAmount);
-    let index1 = Math.floor(Math.random() * wordAmount);
-    let index2 = Math.floor(Math.random() * wordAmount);
-    let index3 = Math.floor(Math.random() * wordAmount);
-    console.log(index1)
-    console.log(index2)
-    console.log(index3)
-    this.word1 = this.words[this.index].word_d;
-    while (index1 == this.index) {
-      index1 = Math.floor(Math.random() * wordAmount);
-    }
-    this.word2 = this.words[index1].word_d;
-    while (index2 == this.index || index2 == index1) {
-      index2 = Math.floor(Math.random() * wordAmount);
-    }
-    this.word3 = this.words[index2].word_d;
-    while (index3 == this.index || index3 == index1 || index3 == index2) {
-      index3 = Math.floor(Math.random() * wordAmount);
-    }
-    this.word4 = this.words[index3].word_d;
     this.currentWord = this.words[this.index].word_fr;
     console.log(this.words);
-    console.log(this.word1);
-    this.index += 1;
     console.log(this.index);
+    // generating 3 unique indexes for wrong answers
+    let arrWordOptionsIndex = [];
+    while (arrWordOptionsIndex.length < 3) {
+      let randomNum = Math.floor(Math.random() * this.words.length);
+      if (arrWordOptionsIndex.indexOf(randomNum) === -1 && randomNum !== this.index) {
+        arrWordOptionsIndex.push(randomNum);
+      }
+    }
+    //adding index orrect answer
+    arrWordOptionsIndex.push(this.index);
+    console.log(arrWordOptionsIndex);
+    //shuffleing indexes
+    const _ = require('lodash');
+    let newOrder = _.shuffle(arrWordOptionsIndex);
+    //checking index of right answer
+    let indexRightAnswer = newOrder.indexOf(parseFloat(this.index));
+    this.word1 = this.words[newOrder[0]].word_d;
+    this.word2 = this.words[newOrder[1]].word_d;
+    this.word3 = this.words[newOrder[2]].word_d;
+    this.word4 = this.words[newOrder[3]].word_d;
+
+    console.log("buttonclicked=" + buttonClicked, "indexright=" + indexRightAnswer)
+    if (buttonClicked == indexRightAnswer) {
+      console.log("correct: score +1");
+    }
+    this.index += 1;
   }
-
-
 
 }
 
