@@ -25,16 +25,15 @@ export class WoordflitserComponent {
 
 
   constructor(private router: Router, private wordsService: WordsService){
-    /*this.words =[];*/
   }
 
+  // function to retrieve words from chosen category via wordsService, 
+  // establishing length of category (in the context of determining a percentagescore)
+  // launching game
   startGame() {
-    /*fetch('http://localhost:8000/api/words/')
-      .then(response => response.json())*/
       this.wordsService.getWords(this.someCategory)
       .then(words => {
         this.words = words;
-        console.log(words)
         this.initialWordsLength = this.words.length;
         this.x = 100/this.words.length;
         this.gameStarted = true;
@@ -42,14 +41,16 @@ export class WoordflitserComponent {
       });
   }
   
+  // function to determine whether the game is ended or a new word must be presented
+  // code to determine the percentage, rounded to an integer
+  // enabling timeout to display the result for a sufficient time, with referal to resultspage
   getNextWord() {
     this.showTranslation = false;
     if (this.words.length === 0) {
       this.gameOver = true;
-      this.percentageScore= this.score/this.initialWordsLength;
+      this.percentageScore= Math.round(this.score/this.initialWordsLength);
       sessionStorage.setItem("score", this.percentageScore);
       setTimeout(() => {this.router.navigateByUrl('resultaat');},4000);
-      
       return;
     }
     const randomIndex = Math.floor(Math.random() * this.words.length);
@@ -58,6 +59,7 @@ export class WoordflitserComponent {
     this.userAnswer = '';
   }
   
+  // function to evaluate the entry and adjust the score
   checkAnswer() {
     if (this.userAnswer === this.currentWord.word_fr) {
       this.score++;
@@ -69,12 +71,10 @@ export class WoordflitserComponent {
       this.getNextWord();
       this.incrementProgress();
     }, 2000);
-    //this.incrementProgress();
   }
 
+  // function to visualize the progress in the exercise
   incrementProgress() {
-    console.log(this.words.length);
     this.progressValue = this.progressValue + this.x;
-    console.log(this.progressValue);
 } 
 }
