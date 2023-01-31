@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { WordsService } from '../words.service';
 import { generate } from 'rxjs';
+
 @Component({
   selector: 'app-vocabulaire',
   templateUrl: './vocabulaire.component.html',
@@ -23,3 +24,4 @@ export class VocabulaireComponent {
     })
     }
   }
+}

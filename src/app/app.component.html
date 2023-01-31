@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h2>Welkom</h2>
+            <button class="homeButton" (click)="navigateHome()"><h2>Taalapp</h2></button>
         </div>
         <br>
         <div class="col-md-12">
@@ -12,6 +12,7 @@
                 <a routerLink="/meerkeuze" routerLinkActive="active">Meerkeuze</a> <br>
                 <a routerLink="/woordflitser" routerLinkActive="active">Woordflitser</a> <br>
                 <a routerLink="/resultaat" routerLinkActive="active">Resultaat</a> <br>
+                <a routerLink="/vocabulaire" routerLinkActive="active">vocabulaire</a> <br>
             </nav>
             <router-outlet></router-outlet>
         </div>
