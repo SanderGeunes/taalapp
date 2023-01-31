@@ -1,0 +1,12 @@
+
+li{
+    list-style: none;
+    display: inline;
+}
+.odd{
+    background-color: antiquewhite;
+}
+.even{
+    background-color: olivedrab;
+    text-align: right;
+}
