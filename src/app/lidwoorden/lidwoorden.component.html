@@ -10,10 +10,14 @@
         </div>
     </div>
     <div class="row p-4">
-        <div class="col-md-6 ">
+        <div class="col-md-4 ">
             <button type="button" #male value="m" class="btn btn-light btn-lg shadow" (click)="checkIfGenderCorrect(male.value)"><img src="/assets/menButton.png" alt="mannelijk" style="width:100px;height:60px;"></button> 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
+            <img class="imgDisplay"*ngIf="showRight" src="/assets/rightSolution.png" alt="right answer" style="width:180px;height:80px;">
+            <img class="imgDisplay" *ngIf="showWrong" src="/assets/wrongSolution.png" alt="wrong answer" style="width:180px;height:80px;">
+        </div>
+        <div class="col-md-4">
             <button type="button" #female value="f" class="btn btn-light btn-lg shadow" (click)="checkIfGenderCorrect(female.value)"><img src="/assets/womenButton.png" alt="vrouwelijk" style="width:100px;height:60px;"></button>
         </div>
     </div>
@@ -21,20 +25,14 @@
     <br>
     <div class="row mb-4">
         <div class="col-md-12">
-            <h6>
-                Score:
+            <p>
+                Huidige score:
                 <span>{{score}}</span>
-            </h6>
+            </p>
             <div class="progress">
                 <div class="progress-bar bg-warning" [ngStyle]="{'width': progress + '%'}" ></div>
               </div>
         </div>
     </div>
     <br>
-    <div class="row">
-        <div class="col-md-12">
-            <img class="imgDisplay"*ngIf="showRight" src="/assets/right.png" alt="right answer">
-            <img class="imgDisplay" *ngIf="showWrong" src="/assets/wrong.png" alt="wrong answer">
-        </div>
-    </div>
 </div>
