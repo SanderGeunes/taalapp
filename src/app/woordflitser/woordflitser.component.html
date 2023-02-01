@@ -4,38 +4,32 @@
             <button type="button" class="btn btn-light" (click)="startGame()">Start het spel!</button>
         </div>
     </div>
-    <div class="row m-2">
+    <div class="row p-4 m-2">
         <div class="col-md-6">
-            <h1>Geef de vertaling van volgend woord:</h1>
+            <h2>Geef de vertaling van volgend woord:</h2>
         </div>
         <div class="col-md-6">
-            <h1>Vertaling:</h1>
+            <h2>Vertaling:</h2>
         </div>
     </div>
-    <div class="row m-2">
+    <div class="row p-4 m-2">
         <div class="col-md-6">
             <div *ngIf="gameStarted && !gameOver">
-            <h2>{{currentWord.word_d}}</h2>
+            <h1>{{currentWord.word_d}}</h1>
             </div>
         </div>
         <div class="col-md-6">
             <div *ngIf="showTranslation" [ngStyle]="{'color': showTranslation && userAnswer === currentWord.word_fr ? 'green' : 'red'}">
-            <h2>{{currentWord.word_fr}}</h2>
+            <h1>{{currentWord.word_fr}}</h1>
             </div>
         </div>
     </div>
-    <div class="row m-5">
-        <div *ngIf="gameStarted && !gameOver">
-            <input [(ngModel)]="userAnswer" placeholder="Enter your answer" (keyup.enter)="checkAnswer()">
-            <button (click)="checkAnswer()">Submit</button>
+    <div class="row p-4 m-5">
+        <div *ngIf="gameStarted && !gameOver" class="input-group mb-3">
+            <input class="form-control" [(ngModel)]="userAnswer" placeholder="Enter your answer" (keyup.enter)="checkAnswer()">
+            <button class="btn btn-light" type="submit" (click)="checkAnswer()">Check!</button>
         </div>
     </div>
-    <!--<div class="row m-2">
-        <div class="col">
-            <button type="button" class="btn btn-success" (click)="updateWords()">Juist</button>
-            <button type="button" class="btn btn-danger" (click)="wrongWordFunction()">Fout</button>
-        </div>
-    </div>-->
     <div class="row m-5">
         <div class="col-md-12" *ngIf="gameOver">
             <h6>
@@ -43,10 +37,10 @@
             </h6>
         </div>
     </div>
-    <div class="row m-5">
+    <div class="row p-4 m-5">
         <div class="col">
             <div class="progress">
-                <div class="progress-bar" [ngStyle]="{'width': progressValue + '%'}" ></div>
+                <div class="progress-bar bg-warning" [ngStyle]="{'width': progressValue + '%'}" ></div>
               </div>
         </div>
     </div>
