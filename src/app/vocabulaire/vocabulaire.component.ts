@@ -23,3 +23,4 @@ export class VocabulaireComponent {
       console.log(this.words);
     })
   }
+}
