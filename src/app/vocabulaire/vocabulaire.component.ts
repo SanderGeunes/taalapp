@@ -10,11 +10,11 @@ import { generate } from 'rxjs';
 export class VocabulaireComponent {
   constructor(private wordService: WordsService) {
 
-   }
-   words: any;
-   category: any;
-   length: any;
-   ngOnInit() {
+  }
+  words: any;
+  category: any;
+  length: any;
+  ngOnInit() {
     let category = sessionStorage.getItem("category");
     this.wordService.getWords(parseFloat(category)).then(data => {
       console.log(data);
@@ -22,5 +22,4 @@ export class VocabulaireComponent {
       this.words = data;
       console.log(this.words);
     })
-    }
   }
