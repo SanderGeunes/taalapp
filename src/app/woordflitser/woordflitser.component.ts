@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { WordsService } from '../words.service';
 
@@ -8,7 +8,7 @@ import { WordsService } from '../words.service';
   styleUrls: ['./woordflitser.component.css']
 })
 
-export class WoordflitserComponent {
+export class WoordflitserComponent implements OnInit {
   
   gameStarted = false;
   gameOver = false;
@@ -30,7 +30,7 @@ export class WoordflitserComponent {
   // function to retrieve words from chosen category via wordsService, 
   // establishing length of category (in the context of determining a percentagescore)
   // launching game
-  startGame() {
+  ngOnInit() {
       this.wordsService.getWords(this.someCategory)
       .then(words => {
         this.words = words;
