@@ -1,30 +1,32 @@
 <div class="container text-center">
-    <div class="row">
+    <div class="row p-4">
         <div class="col-md-12">
-            <h5>Duid voor elk woord aan of het mannelijk of vrouwelijk is</h5>
-            <br>
-            <p>{{currentWord.word_fr}} </p>
-            
+            <h2>Duid voor elk woord aan of het mannelijk of vrouwelijk is</h2>
         </div>
     </div>
-    <div class="row">
+    <div class="row p-4">
+        <div class="col-md-12">
+            <h1>{{currentWord.word_fr}} </h1>
+        </div>
+    </div>
+    <div class="row p-4">
         <div class="col-md-6 ">
-            <button type="button" #male value="m" class="btn btn-primary btn-lg" (click)="checkIfGenderCorrect(male.value)">Mannelijk</button> 
+            <button type="button" #male value="m" class="btn btn-light btn-lg shadow" (click)="checkIfGenderCorrect(male.value)"><img src="/assets/menButton.png" alt="mannelijk" style="width:100px;height:60px;"></button> 
         </div>
         <div class="col-md-6">
-            <button type="button" #female value="f" class="btn btn-danger btn-lg" (click)="checkIfGenderCorrect(female.value)">Vrouwelijk</button>
+            <button type="button" #female value="f" class="btn btn-light btn-lg shadow" (click)="checkIfGenderCorrect(female.value)"><img src="/assets/womenButton.png" alt="vrouwelijk" style="width:100px;height:60px;"></button>
         </div>
     </div>
     <br>
     <br>
-    <div class="row">
+    <div class="row mb-4">
         <div class="col-md-12">
             <h6>
                 Score:
                 <span>{{score}}</span>
             </h6>
             <div class="progress">
-                <div class="progress-bar" [ngStyle]="{'width': progress + '%'}" ></div>
+                <div class="progress-bar bg-warning" [ngStyle]="{'width': progress + '%'}" ></div>
               </div>
         </div>
     </div>
