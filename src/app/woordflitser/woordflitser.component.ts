@@ -48,7 +48,7 @@ export class WoordflitserComponent implements OnInit {
     this.showTranslation = false;
     if (this.words.length === 0) {
       this.gameOver = true;
-      this.percentageScore= Math.round(this.score/this.initialWordsLength);
+      this.percentageScore= this.score/this.initialWordsLength;
       sessionStorage.setItem("score", this.percentageScore);
       setTimeout(() => {this.router.navigateByUrl('resultaat');},4000);
       return;
