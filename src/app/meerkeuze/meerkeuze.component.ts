@@ -53,6 +53,9 @@ export class MeerkeuzeComponent {
   showWords() {
     //generating 3 other  unique dutch words
     if (this.index == this.words.length) {
+      let scorePercentage: any = this.score/this.words.length;
+      sessionStorage.setItem("score", scorePercentage);
+      console.log(scorePercentage);
       this.router.navigateByUrl('resultaat')
     }
     let wordAmount = this.words.length - 1;

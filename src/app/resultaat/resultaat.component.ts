@@ -27,7 +27,7 @@ export class ResultaatComponent {
     // retrieve score from session storage
     this.score = parseFloat(sessionStorage.getItem("score"));
     // round score up to 2 decimals after comma and multiply by 100 to show percentage
-    this.roundedScore = this.score.toFixed(2) * 100;
+    this.roundedScore = Math.round(this.score * 100);
     // if-loop to determine which image to show
     if (this.roundedScore < 50){
       this.failed = true;
