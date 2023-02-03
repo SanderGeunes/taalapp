@@ -17,15 +17,17 @@ export class MeerkeuzeComponent {
   word4: any = "W4";
   results: any = "0";
   words: any;
-  router: any;
   buttonClicked: any;
   index: any = 0;
   frenchWord: any;
   wordf: any = "Franse woord";
   currentWord: any = "";
-  clicked: any ="";
+  clicked: any = "";
+  score: any = 0;
+  indexRight = 0;
+  progress:any = 0;
 
-  constructor(private wordService: WordsService) { }
+  constructor(private wordService: WordsService, private router: Router) { }
   ngOnInit() {
     const buttons = document.querySelectorAll('button');
 
@@ -42,15 +44,13 @@ export class MeerkeuzeComponent {
       const _ = require('lodash');
       this.words = _.shuffle(data);
       console.log(this.words);
-      this.showWords(this.buttonClicked);
+      this.showWords();
     })
 
 
 
   }
-  showWords(buttonClicked) {
-    this.clicked = buttonClicked;
-    console.log("buttonclicked= " + buttonClicked)
+  showWords() {
     //generating 3 other  unique dutch words
     if (this.index == this.words.length) {
       this.router.navigateByUrl('resultaat')
@@ -80,17 +80,25 @@ export class MeerkeuzeComponent {
     const _ = require('lodash');
     let newOrder = _.shuffle(arrWordOptionsIndex);
     //checking index of right answer
-    let indexRightAnswer = newOrder.indexOf(parseFloat(this.index));
+    this.indexRight = newOrder.indexOf(parseFloat(this.index));
     this.word1 = this.words[newOrder[0]].word_d;
     this.word2 = this.words[newOrder[1]].word_d;
     this.word3 = this.words[newOrder[2]].word_d;
     this.word4 = this.words[newOrder[3]].word_d;
-
-    console.log("buttonclicked=" + buttonClicked, "indexright=" + indexRightAnswer)
-    if (buttonClicked == indexRightAnswer) {
-      console.log("correct: score +1");
-    }
     this.index += 1;
+  }
+  //checking if the correct opion is clicked
+  checkResults(buttonClicked) {
+    console.log("zokpdkzodkzpdok");
+    if (this.indexRight == buttonClicked) {
+      this.score += 1;
+      console.log("juist!");
+    }
+    this.increaseProgress();
+  }
+  increaseProgress(){
+    let x = 100/this.words.length;
+    this.progress = this.progress + x;
   }
 
 }
