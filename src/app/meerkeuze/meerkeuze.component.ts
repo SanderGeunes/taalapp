@@ -26,16 +26,11 @@ export class MeerkeuzeComponent {
   score: any = 0;
   indexRight = 0;
   progress:any = 0;
+  maxScore:any;
 
   constructor(private wordService: WordsService, private router: Router) { }
   ngOnInit() {
     const buttons = document.querySelectorAll('button');
-
-    buttons.forEach(button => {
-      button.addEventListener('click', function () {
-        console.log(this.id);
-      });
-    });
 
     //scramble the order of the wordlist
     let category = sessionStorage.getItem("category");
@@ -65,7 +60,13 @@ export class MeerkeuzeComponent {
       }
     }
     console.log(wordAmount);
-    this.currentWord = this.words[this.index].word_fr;
+    this.maxScore = wordAmount;
+    if(this.words[this.index].article_fr != null){
+      this.currentWord = this.words[this.index].article_fr + " " + this.words[this.index].word_fr;
+    }
+    else{
+      this.currentWord = this.words[this.index].word_fr;
+    }
     console.log(this.words);
     console.log(this.index);
     // generating 3 unique indexes for wrong answers
