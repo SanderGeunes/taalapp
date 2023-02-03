@@ -8,27 +8,19 @@
 </head>
 <body> 
     <div class="container">
-        <div class="row p-4">
-                {{wordlist | json }}
-            <div class="col-md-12 text-center">
-                <h2>Zoek de passende vertaling tussen de afleidende woorden.</h2> 
-            </div>
-        </div>
-        <div class="row p-4 text-center">
-            <div class="col-md-12">
-                <h1>{{currentWord}}</h1>
-            </div>
-        </div>
-        <div class="row p-4 text-center">
-            <div class="col-md-12">
-                <div class="d-grid gap-3">
-                    <button id="buttonWord1" class="btn btn-light btn-block shadow" (click)="showWords(0)">{{word1}}</button>
-                    <button id="buttonWord2" class="btn btn-light btn-block shadow" (click)="showWords(1)">{{word2}}</button>
-                    <button id="buttonWord3" class="btn btn-light btn-block shadow" (click)="showWords(2)">{{word3}}</button>
-                    <button id="buttonWord4" class="btn btn-light btn-block shadow" (click)="showWords(3)">{{word4}}</button>
-                </div>
-            </div>
-        </div>
+    <div class="row">
+        {{wordlist | json }}
+    <div class="col-md-12 ">Hoofdstuk 1: </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">{{currentWord}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 "><button id="buttonWord1" class="btn btn-primary"(click)="showWords(0)">{{word1}}</button></div><div class ="col-md-6"><button id="buttonWord2"class="btn btn-primary"(click)="showWords(1)">{{word2}}</button></div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"><button id="buttonWord3"class="btn btn-primary" (click)="showWords(2)">{{word3}}</button></div><div class ="col-md-6"><button id= "buttonWord4"buttonWord4 class="btn btn-primary" (click)="showWords(3)">{{word4}}</button></div>
+    </div>
     </div>
 </body>
 </html>
