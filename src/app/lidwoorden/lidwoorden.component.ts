@@ -46,7 +46,7 @@ export class LidwoordenComponent {
 
   checkIfGenderCorrect(gender: string){
     //if article is male, increase score by 1 and show picture "right answer"
-    if (this.currentWord.article_fr === gender){
+    if (this.currentWord.gender === gender){
       this.score = this.score + 1;
       this.showWrong = false;
       this.showRight = true;
