@@ -6,24 +6,42 @@
   </div>
 </div>
 <div class="container-fluid text-center p-4 mb-5">
-    <div class="row m-4">
-        <div class="col-md-12">
-          <div class="btn-group shadow" role="group">
-                <input class="btn-check" type="radio" value="1" name="flexRadioDefault" id="flexRadioDefault1" checked>
-                <label class="btn btn-light" for="flexRadioDefault1" ><img src="/assets/personalInformationButton.png" alt="personal information" style="width:100px;height:60px;"></label>
-                <input class="btn-check" type="radio" value="2" name="flexRadioDefault" id="flexRadioDefault2">
-                <label class="btn btn-light" for="flexRadioDefault2" ><img src="/assets/familyButton.png" alt="family" style="width:100px;height:60px;"></label>
-                <input class="btn-check" type="radio" value="3" name="flexRadioDefault" id="flexRadioDefault3">
-                <label class="btn btn-light" for="flexRadioDefault3" ><img src="/assets/clothingButton.png" alt="clothing" style="width:100px;height:60px;"></label>
-                <input class="btn-check" type="radio" value="4" name="flexRadioDefault" id="flexRadioDefault4">
-                <label class="btn btn-light" for="flexRadioDefault4" ><img src="/assets/bodyButton.png" alt="body" style="width:100px;height:60px;"></label>
-                <input class="btn-check" type="radio" value="5" name="flexRadioDefault" id="flexRadioDefault5">
-                <label class="btn btn-light" for="flexRadioDefault5" ><img src="/assets/homeButton.png" alt="home" style="width:100px;height:60px;"></label>
-                <input class="btn-check" type="radio" value="6" name="flexRadioDefault" id="flexRadioDefault6">
-                <label class="btn btn-light" for="flexRadioDefault6" ><img src="/assets/leisureButton.png" alt="leisure" style="width:100px;height:60px;"></label>         
+  <div class="row m-4">
+    <div class="col-md-12">
+      <div class="btn-group shadow" role="group">
+        <input class="btn-check" type="radio" value="1" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="btn btn-light p-0" for="flexRadioDefault1">
+          <div class="boxId"><h2 class="text">Id</h2>
           </div>
-        </div>
+        </label>
+        <input class="btn-check" type="radio" value="2" name="flexRadioDefault" id="flexRadioDefault2">
+        <label class="btn btn-light p-0" for="flexRadioDefault2">
+          <div class="boxFamily"><h2 class="text">Familie</h2>
+          </div>
+        </label>
+        <input class="btn-check" type="radio" value="3" name="flexRadioDefault" id="flexRadioDefault3">
+        <label class="btn btn-light p-0" for="flexRadioDefault3">
+          <div class="boxClothing"><h2 class="text">Kledij</h2>
+          </div>
+        </label>
+        <input class="btn-check" type="radio" value="4" name="flexRadioDefault" id="flexRadioDefault4">
+        <label class="btn btn-light p-0 m-0" for="flexRadioDefault4">
+            <div class="boxBody"><h2 class="text">Lichaam</h2>
+            </div>
+        </label>
+        <input class="btn-check" type="radio" value="5" name="flexRadioDefault" id="flexRadioDefault5">
+        <label class="btn btn-light p-0" for="flexRadioDefault5">
+          <div class="boxHome"><h2 class="text">Thuis</h2>
+          </div>
+        </label>
+        <input class="btn-check" type="radio" value="6" name="flexRadioDefault" id="flexRadioDefault6">
+        <label class="btn btn-light p-0" for="flexRadioDefault6">
+          <div class="boxLeisure"><h2 class="text">Ontspanning</h2>
+          </div>
+        </label>
+      </div>
     </div>
+  </div>
 </div>
 
 <div class="container-fluid text-center p-4">
@@ -38,9 +56,10 @@
   <div class="row m-4">
     <div class="col-md-12">
       <div class="shadow btn-group">
-          <button #vocabulaire class="btn btn-light" value="vocabulaire" (click)="startGame(vocabulaire.value)">Woordenlijst</button>
+        <button #vocabulaire class="btn btn-light" value="vocabulaire"
+          (click)="startGame(vocabulaire.value)">Woordenlijst</button>
       </div>
-  </div>
+    </div>
   </div>
 </div>
 
@@ -53,13 +72,16 @@
 </div>
 
 <div class="container-fluid text-center p-4 mb-5">
-    <div class="row m-4">
-      <div class="col-md-12">
-        <div class="shadow btn-group">
-            <button #lidwoorden class="btn btn-light" value="lidwoorden" (click)="startGame(lidwoorden.value)">Lidwoordentrainer</button>
-            <button #meerkeuze class="btn btn-light" value="meerkeuze" (click)="startGame(meerkeuze.value)">Meerkeuze</button>
-            <button #woordflitser class="btn btn-light" value="woordflitser" (click)="startGame(woordflitser.value)">Woordflitser</button>
-        </div>
+  <div class="row m-4">
+    <div class="col-md-12">
+      <div class="shadow btn-group">
+        <button #lidwoorden class="btn btn-light" value="lidwoorden"
+          (click)="startGame(lidwoorden.value)">Lidwoordentrainer</button>
+        <button #meerkeuze class="btn btn-light" value="meerkeuze"
+          (click)="startGame(meerkeuze.value)">Meerkeuze</button>
+        <button #woordflitser class="btn btn-light" value="woordflitser"
+          (click)="startGame(woordflitser.value)">Woordflitser</button>
+      </div>
     </div>
-    </div>
+  </div>
 </div>
