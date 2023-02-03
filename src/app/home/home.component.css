@@ -1,3 +1,111 @@
 .container-fluid.panel{
     background-color: #FFFFFF;
 }
+
+.boxId{
+    display: block;
+    width:140px;
+    height:80px;
+    background:url('/assets/personalInformationButton.png');
+    background-size: cover;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+}
+    
+.text{
+    display:none;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+  
+}
+.boxId:hover{
+    background:#CCC;
+}
+.boxId:hover .text{
+    display:block;
+}
+
+.boxFamily{
+    display: block;
+    width:140px;
+    height:80px;
+    background:url('/assets/familyButton.png');
+    background-size: cover;
+}
+    
+.boxFamily:hover{
+    background:#CCC;
+}
+.boxFamily:hover .text{
+    display:block;
+}
+
+.boxClothing{
+    display: block;
+    width:140px;
+    height:80px;
+    background:url('/assets/clothingButton.png');
+    background-size: cover;
+}
+    
+.boxClothing:hover{
+    background:#CCC;
+}
+.boxClothing:hover .text{
+    display:block;
+}
+
+.boxBody{
+    display: block;
+    width:140px;
+    height:80px;
+    background:url('/assets/bodyButton.png');
+    background-size: cover;
+}
+    
+.boxBody:hover{
+    background:#CCC;
+}
+.boxBody:hover .text{
+    display:block;
+}
+
+.boxHome{
+    display: block;
+    width:140px;
+    height:80px;
+    background:url('/assets/homeButton.png');
+    background-size: cover;
+}
+    
+.boxHome:hover{
+    background:#CCC;
+}
+.boxHome:hover .text{
+    display:block;
+}
+
+.boxLeisure{
+    display: block;
+    width:140px;
+    height:80px;
+    background:url('/assets/leisureButton.png');
+    background-size: cover;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+
+}
+    
+.boxLeisure:hover{
+    background:#CCC;
+}
+.boxLeisure:hover .text{
+    display:block;
+}

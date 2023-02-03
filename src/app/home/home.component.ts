@@ -1,20 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, TitleStrategy } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent{
+showWord: any;
+showImage: boolean;
+selected: number;
+
   constructor(private router: Router){
-  
+  this.showWord = [false, false, false, false, false, false];
+  this.showImage = true;
+  this.selected = 0;
   }
   ngOnInit(){
     sessionStorage.clear
   }
 
+  mouseEnter(){
+    this.showWord = true;
+    this.showImage = false;
+    console.log('jeej')
+  };
+  mouseLeave(){
+    this.showWord = false;
+    this.showImage = true;
 
+  };
   startGame(game:string){
     let id: any;
     // Looping through the radio buttons and verifying if they are checked.
