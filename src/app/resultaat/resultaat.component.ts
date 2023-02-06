@@ -31,11 +31,11 @@ export class ResultaatComponent {
     // if-loop to determine which image to show
     if (this.roundedScore < 50){
       this.failed = true;
-    } else if (50 < this.roundedScore && this.roundedScore < 68){
+    } else if (50 <= this.roundedScore && this.roundedScore < 68){
       this.passed = true;
-    } else if (68 < this.roundedScore && this.roundedScore < 77){
+    } else if (68 <= this.roundedScore && this.roundedScore < 77){
       this.cumLaude = true;
-    } else if (77 < this.roundedScore && this.roundedScore < 100){
+    } else if (77 <= this.roundedScore && this.roundedScore < 100){
       this.cumMagnaLaude = true;
     } else if (this.roundedScore === 100){
       this.summaCumLaude = true;
