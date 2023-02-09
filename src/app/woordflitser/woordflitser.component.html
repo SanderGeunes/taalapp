@@ -18,7 +18,7 @@
         </div>
         <div class="col-md-6">
             <div *ngIf="showTranslation">
-            <h1 [ngStyle]="{'color': showTranslation && userAnswer === currentWord.word_fr ? 'green' : 'red'}">{{currentWord.word_fr}}</h1>
+            <h1 [ngStyle]="{'color': showTranslation && userAnswer.toLowerCase() === currentWord.article_fr.toLowerCase()+' '+currentWord.word_fr.toLowerCase()? 'green' : 'red'}">{{currentWord.article_fr}} {{currentWord.word_fr}}</h1>
             </div>
         </div>
     </div>

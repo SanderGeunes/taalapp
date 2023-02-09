@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router, TitleStrategy } from '@angular/router';
 
 
@@ -11,6 +11,12 @@ export class HomeComponent{
 showWord: any;
 showImage: boolean;
 selected: number;
+isMobile = false;
+
+@HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.isMobile = event.target.innerWidth <= 576;
+  }
 
   constructor(private router: Router){
   this.showWord = [false, false, false, false, false, false];
@@ -18,19 +24,10 @@ selected: number;
   this.selected = 0;
   }
   ngOnInit(){
-    sessionStorage.clear
+    sessionStorage.clear;
+    this.onResize({ target: window });
   }
 
-  mouseEnter(){
-    this.showWord = true;
-    this.showImage = false;
-    console.log('jeej')
-  };
-  mouseLeave(){
-    this.showWord = false;
-    this.showImage = true;
-
-  };
   startGame(game:string){
     let id: any;
     // Looping through the radio buttons and verifying if they are checked.

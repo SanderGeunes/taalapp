@@ -8,7 +8,7 @@
 <div class="container-fluid text-center p-4 mb-5">
   <div class="row m-4">
     <div class="col-md-12">
-      <div class="btn-group shadow" role="group">
+      <div [ngClass]="{'btn-group-vertical': isMobile, 'btn-group': !isMobile}" class="shadow" role="group">
         <input class="btn-check" type="radio" value="1" name="flexRadioDefault" id="flexRadioDefault1">
         <label class="btn btn-light p-0" for="flexRadioDefault1">
           <div class="boxId"><h2 class="text">Id</h2>
@@ -74,7 +74,7 @@
 <div class="container-fluid text-center p-4 mb-5">
   <div class="row m-4">
     <div class="col-md-12">
-      <div class="shadow btn-group">
+      <div [ngClass]="{'btn-group-vertical': isMobile, 'btn-group': !isMobile}" class="shadow">
         <button #lidwoorden class="btn btn-light" value="lidwoorden"
           (click)="startGame(lidwoorden.value)">Lidwoordentrainer</button>
         <button #meerkeuze class="btn btn-light" value="meerkeuze"
