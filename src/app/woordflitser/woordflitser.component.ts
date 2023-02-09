@@ -13,7 +13,7 @@ export class WoordflitserComponent implements OnInit {
   gameStarted = false;
   gameOver = false;
   score = 0;
-  currentWord = { word_fr: '', word_d: '', id: ''};
+  currentWord = { article_fr:' ', word_fr: '', word_d: '', id: ''};
   userAnswer = '';
   words = [];
   progressValue: number = 0;
@@ -61,7 +61,7 @@ export class WoordflitserComponent implements OnInit {
   
   // function to evaluate the entry and adjust the score
   checkAnswer() {
-    if (this.userAnswer === this.currentWord.word_fr) {
+    if (this.userAnswer.toLowerCase() === this.currentWord.article_fr.toLowerCase() +' '+this.currentWord.word_fr.toLowerCase()) {
       this.score++;
     } else {
       this.score;

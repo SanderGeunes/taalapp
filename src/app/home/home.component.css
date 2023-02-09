@@ -4,19 +4,19 @@
 
 .boxId{
     display: block;
-    width:140px;
-    height:80px;
+    width:8rem;
+    height:5rem;
     background:url('/assets/personalInformationButton.png');
     background-size: cover;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
 
 }
     
 .text{
     display:none;
     color: white;
-    font-size: 20px;
+    font-size: 1rem;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -33,8 +33,8 @@
 
 .boxFamily{
     display: block;
-    width:140px;
-    height:80px;
+    width:8rem;
+    height:5rem;
     background:url('/assets/familyButton.png');
     background-size: cover;
 }
@@ -48,8 +48,8 @@
 
 .boxClothing{
     display: block;
-    width:140px;
-    height:80px;
+    width:8rem;
+    height:5rem;
     background:url('/assets/clothingButton.png');
     background-size: cover;
 }
@@ -63,8 +63,8 @@
 
 .boxBody{
     display: block;
-    width:140px;
-    height:80px;
+    width:8rem;
+    height:5rem;
     background:url('/assets/bodyButton.png');
     background-size: cover;
 }
@@ -78,8 +78,8 @@
 
 .boxHome{
     display: block;
-    width:140px;
-    height:80px;
+    width:8rem;
+    height:5rem;
     background:url('/assets/homeButton.png');
     background-size: cover;
 }
@@ -93,12 +93,12 @@
 
 .boxLeisure{
     display: block;
-    width:140px;
-    height:80px;
+    width:8rem;
+    height:5rem;
     background:url('/assets/leisureButton.png');
     background-size: cover;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
 
 
 }
@@ -109,3 +109,18 @@
 .boxLeisure:hover .text{
     display:block;
 }
+
+.btn-group {
+    display: box;
+    justify-content: center;
+  }
+
+  @media (max-width: 500px) {
+    .btn-group {
+      flex-direction: column;
+    }
+    .boxLeisure{
+        border-top-right-radius: 0rem;
+    }
+
+  }

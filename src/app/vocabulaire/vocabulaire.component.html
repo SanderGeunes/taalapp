@@ -1,16 +1,16 @@
 
-<div class="container p-4 m-2 text-center">
+<div class="container p-4">
     <div class="row">
-        <div class="col-md-6 p-3 text-right">
-            <h2>Frans</h2>
+        <div class="col-md-6 text-end">
+            <h2 class="text-warning">Frans</h2>
         </div>
         <div class="col-md-6 text-left">
             <h2>Nederlands</h2>
         </div>
     </div>
     <div class="row" *ngFor="let user of words; index as i;">
-        <div class="col-md-6 p-3 text-right" > 
-            <p>{{words[i].article_fr}} {{words[i].word_fr}}</p>
+        <div class="col-md-6 text-end" > 
+            <p class="text-warning">{{words[i].article_fr}} {{words[i].word_fr}}</p>
         </div>
         <div class="col-md-6 text-left"> 
             <p>{{words[i].word_d}}</p>
